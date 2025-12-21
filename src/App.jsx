@@ -13,6 +13,7 @@ import {
   Smartphone,
   MessageCircle,
 } from "lucide-react";
+import logo from "../src/assets/SchoolSync-logo.png"
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -58,12 +59,13 @@ export default function App() {
           scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-6 py-0 flex items-center justify-between">
+          <div className="flex items-center gap-2 w-40">
+            {/* <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <Users className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">SchoolSync</span>
+            <span className="text-xl font-bold text-gray-900">SchoolSync</span> */}
+            <img src={logo} alt="" />
           </div>
           <button
             onClick={() => (window.location.href = "#demo")}
