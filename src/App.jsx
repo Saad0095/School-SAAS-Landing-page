@@ -9,7 +9,6 @@ export default function App() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       
-      // Intersection Observer for fade-in animations
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -51,7 +50,7 @@ export default function App() {
           </div>
           <button 
             onClick={() => window.location.href = '#demo'}
-            className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="cursor-pointer cursor-pointer hidden md:flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors"
           >
             Book Demo <ArrowRight className="w-4 h-4" />
           </button>
@@ -89,12 +88,12 @@ export default function App() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <button 
               onClick={() => window.location.href = '#demo'}
-              className="group w-full sm:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/35 transition-all duration-300 flex items-center justify-center gap-2"
+              className="cursor-pointer group w-full sm:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/35 transition-all duration-300 flex items-center justify-center gap-2"
             >
               Book a Free 10-Minute Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white text-gray-700 text-lg font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
+            <button className="cursor-pointer w-full sm:w-auto px-8 py-4 bg-white text-gray-700 text-lg font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
               Watch Video
             </button>
           </div>
@@ -370,7 +369,7 @@ export default function App() {
               
               <button 
                 onClick={() => window.location.href = '#demo'}
-                className="w-full py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 group"
+                className="cursor-pointer  w-full py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 group"
               >
                 Get Started Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -400,12 +399,12 @@ export default function App() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button 
               onClick={() => window.location.href = 'mailto:contact@yourdomain.com?subject=Demo Request'}
-              className="group w-full sm:w-auto px-10 py-5 bg-white text-blue-600 text-lg font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:shadow-3xl hover:scale-105"
+              className="cursor-pointer group w-full sm:w-auto px-10 py-5 bg-white text-blue-600 text-lg font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:shadow-3xl hover:scale-105"
             >
               Book a Free Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="w-full sm:w-auto px-10 py-5 bg-blue-800/50 backdrop-blur text-white text-lg font-semibold rounded-xl border-2 border-white/20 hover:bg-blue-800/70 transition-all duration-300">
+            <button className="cursor-pointer w-full sm:w-auto px-10 py-5 bg-blue-800/50 backdrop-blur text-white text-lg font-semibold rounded-xl border-2 border-white/20 hover:bg-blue-800/70 transition-all duration-300">
               Schedule a Call
             </button>
           </div>
@@ -464,16 +463,16 @@ export default function App() {
             <div>
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <a 
-                href="mailto:contact@yourdomain.com" 
+                href="mailto:saadbinkhalidsales@gmail.com" 
                 className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 text-sm"
               >
-                contact@yourdomain.com
+                saadbinkhalidsales@gmail.com
               </a>
             </div>
           </div>
           
           <div className="pt-8 border-t border-gray-800 text-center text-sm">
-            <p>© 2025 SchoolSync. Built by experienced developers for schools worldwide.</p>
+            <p>© {new Date().getFullYear()} SchoolSync. Built by experienced developers for schools worldwide.</p>
           </div>
         </div>
       </footer>
