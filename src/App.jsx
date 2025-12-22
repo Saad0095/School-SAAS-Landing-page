@@ -10,10 +10,10 @@ import {
   TrendingUp,
   Phone,
   Mail,
-  Smartphone,
   MessageCircle,
+  Cpu,
 } from "lucide-react";
-import logo from "../src/assets/SchoolSync-logo.png"
+import logo from "../src/assets/SchoolSync-logo.png";
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +52,7 @@ export default function App() {
       : "opacity-0 translate-y-8";
 
   return (
-    <div className="bg-white font-sans antialiased overflow-x-hidden">
+ <div className="bg-white font-sans antialiased overflow-x-hidden">
       {/* FLOATING HEADER */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -61,10 +61,6 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto px-6 py-0 flex items-center justify-between">
           <div className="flex items-center gap-2 w-40">
-            {/* <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Users className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">SchoolSync</span> */}
             <img src={logo} alt="" />
           </div>
           <button
@@ -78,7 +74,6 @@ export default function App() {
 
       {/* HERO SECTION */}
       <section className="pt-32 pb-24 px-6 relative overflow-hidden">
-        {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.15]">
           <div
             className="w-full h-full"
@@ -90,25 +85,11 @@ export default function App() {
           />
         </div>
 
-        {/* <div className="absolute inset-0 opacity-[0.04]">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: `
-        linear-gradient(to right, #2563eb 1px, transparent 1px),
-        linear-gradient(to bottom, #2563eb 1px, transparent 1px)
-      `,
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div> */}
-
         <div className="max-w-[800px] mx-auto text-center relative">
-          {/* Floating badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-100 rounded-full mb-8 animate-fade-in">
             <TrendingUp className="w-4 h-4 text-blue-600" />
             <span className="text-sm font-medium text-blue-700">
-              Trusted by 200+ schools worldwide
+              Helping schools save time and reduce paperwork
             </span>
           </div>
 
@@ -124,19 +105,6 @@ export default function App() {
             manage students, attendance, grades, and reports — all in one place.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <button
-              onClick={() => (window.location.href = "#demo")}
-              className="cursor-pointer group w-full sm:w-auto px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl shadow-lg shadow-blue-600/25 hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/35 transition-all duration-300 flex items-center justify-center gap-2"
-            >
-              Book a Free 10-Minute Demo
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="cursor-pointer w-full sm:w-auto px-8 py-4 bg-white text-gray-700 text-lg font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-all duration-300">
-              Watch Video
-            </button>
-          </div>
-
           <div className="flex items-center justify-center gap-2 text-base font-medium text-emerald-600">
             <Check className="w-5 h-5" />
             <span>
@@ -146,7 +114,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Decorative elements */}
         <div className="absolute top-40 left-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-30" />
       </section>
@@ -200,15 +167,10 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { icon: Clock, text: "Attendance takes too much time every day" },
-              {
-                icon: Users,
-                text: "Student records are scattered or outdated",
-              },
+              { icon: Users, text: "Student records are scattered or outdated" },
               { icon: BarChart3, text: "Report generation is slow and manual" },
-              {
-                icon: Shield,
-                text: "Teachers and admins struggle with coordination",
-              },
+              // { icon: Shield, text: "Teachers and admins struggle with coordination" },
+              { icon: Cpu, text: "No insights for student performance" },
             ].map((item, i) => (
               <div
                 key={i}
@@ -244,47 +206,24 @@ export default function App() {
               The Solution
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              One Simple System for Your Entire School
+              One Intelligent System for Your Entire School
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-[700px] mx-auto">
               Our School Management System helps private schools digitize daily
-              operations — from attendance to reporting — without complex setup
-              or training.
+              operations — from attendance to reporting — and leverages AI to
+              provide personalized insights for each student.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: Users,
-                title: "Student & Teacher Management",
-                desc: "Centralized profiles and records",
-              },
-              {
-                icon: Calendar,
-                title: "Digital Attendance",
-                desc: "Track presence in real-time",
-              },
-              {
-                icon: BarChart3,
-                title: "Class Management",
-                desc: "Organize sections effortlessly",
-              },
-              {
-                icon: TrendingUp,
-                title: "Performance Reports",
-                desc: "Generate insights instantly",
-              },
-              {
-                icon: Shield,
-                title: "Secure Cloud Access",
-                desc: "Access anywhere, anytime",
-              },
-              {
-                icon: Clock,
-                title: "Time Tracking",
-                desc: "Monitor schedules efficiently",
-              },
+              { icon: Users, title: "Student & Teacher Management", desc: "Centralized profiles and records" },
+              { icon: Calendar, title: "Digital Attendance", desc: "Track presence in real-time" },
+              { icon: BarChart3, title: "Class Management", desc: "Organize sections effortlessly" },
+              { icon: TrendingUp, title: "Performance Reports", desc: "Generate insights instantly" },
+              { icon: Shield, title: "Secure Cloud Access", desc: "Access anywhere, anytime" },
+              // { icon: Clock, title: "Time Tracking", desc: "Monitor schedules efficiently" },
+              { icon: Cpu, title: "AI Study Recommendations", desc: "Personalized learning tips for each student based on grades" },
             ].map((feature, i) => (
               <div
                 key={i}
@@ -296,6 +235,43 @@ export default function App() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
+                <p className="text-gray-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI FEATURE SECTION */}
+      <section className="py-24 px-6 bg-gradient-to-br from-purple-50 to-white" data-animate id="ai-feature">
+        <div
+          className={`max-w-[900px] mx-auto transition-all duration-700 ${fadeInClass(
+            "ai-feature"
+          )}`}
+        >
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 bg-purple-100 text-purple-700 text-sm font-medium rounded-full mb-4">
+              AI-Powered
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Intelligent Insights for Smarter Schools
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-[700px] mx-auto">
+              Our AI engine analyzes student data to provide actionable recommendations, helping teachers personalize learning and improve academic performance effortlessly.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Cpu, title: "Personalized Learning", desc: "Tailored study tips based on each student's progress" },
+              { icon: BarChart3, title: "Predictive Analytics", desc: "Forecast student performance and identify gaps early" },
+              { icon: TrendingUp, title: "Automated Insights", desc: "AI-generated reports to save teachers hours of work" },
+            ].map((feature, i) => (
+              <div key={i} className="group p-8 bg-white border border-gray-200 rounded-2xl hover:border-purple-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-600 transition-colors">
+                  <feature.icon className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
               </div>
             ))}
@@ -627,7 +603,7 @@ export default function App() {
                     href="tel:+923082238947"
                     className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm group"
                   >
-                    <Smartphone className="w-4 h-4 flex-shrink-0" />
+                    <Phone className="w-4 h-4 flex-shrink-0" />
                     <span className="group-hover:underline">
                       +92 321 7654321
                     </span>
@@ -635,7 +611,7 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="https://wa.me/923170218290"
+                    href="https://wa.me/923170218290?text=Hello!%20I%20manage%20a%20private%20school%20and%20I'm%20interested%20in%20learning%20how%20SchoolSync%20can%20help%20us%20save%20time%20and%20digitize%20our%20administration.%20Please%20share%20the%20demo%20details%20and%20next%20steps%20so%20we%20can%20get%20started."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-2 text-sm group"
