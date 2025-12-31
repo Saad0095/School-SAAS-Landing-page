@@ -153,7 +153,7 @@ export default function App() {
       </section>
 
       {/* STATS BAR */}
-      <section className="py-12 px-6 bg-gray-50 border-y border-gray-100">
+      {/* <section className="py-12 px-6 bg-gray-50 border-y border-gray-100">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
@@ -178,6 +178,35 @@ export default function App() {
               99.9%
             </div>
             <div className="text-sm text-gray-600">Uptime</div>
+          </div>
+        </div>
+      </section> */}
+
+      <section className="py-12 px-6 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Simpler
+            </div>
+            <div className="text-sm text-gray-600">Administration</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Faster
+            </div>
+            <div className="text-sm text-gray-600">Report Generation</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Secure
+            </div>
+            <div className="text-sm text-gray-600">Cloud Data</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              24/7
+            </div>
+            <div className="text-sm text-gray-600">Support</div>
           </div>
         </div>
       </section>
@@ -523,16 +552,14 @@ export default function App() {
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-2">
                   <span className="text-5xl font-bold text-gray-900">
-                    {activePrice.symbol}
-                    {activePrice.setup}
+                    {activePrice.symbol} {activePrice.setup}
                   </span>
                   <span className="text-lg text-gray-600">one-time setup</span>
                 </div>
 
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold text-gray-900">
-                    {activePrice.symbol}
-                    {activePrice.monthly}
+                    {activePrice.symbol} {activePrice.monthly}
                   </span>
                   <span className="text-lg text-gray-600">/month</span>
                 </div>
@@ -595,19 +622,23 @@ export default function App() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={() =>
-                (window.location.href =
-                  "mailto:contact@yourdomain.com?subject=Demo Request")
-              }
+            <a
               className="cursor-pointer group w-full sm:w-auto px-10 py-5 bg-white text-blue-600 text-lg font-bold rounded-xl hover:bg-gray-50 transition-all duration-300 flex items-center justify-center gap-2 shadow-2xl hover:shadow-3xl hover:scale-105"
+              href="https://wa.me/923170218290?text=Hello!%20I%20manage%20a%20private%20school%20and%20I'm%20interested%20in%20learning%20how%20SchoolSync%20can%20help%20us%20save%20time%20and%20digitize%20our%20administration.%20Please%20share%20the%20demo%20details%20and%20next%20steps%20so%20we%20can%20get%20started."
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Book a Free Demo
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="cursor-pointer w-full sm:w-auto px-10 py-5 bg-blue-800/50 backdrop-blur text-white text-lg font-semibold rounded-xl border-2 border-white/20 hover:bg-blue-800/70 transition-all duration-300">
+            </a>
+            <a
+              className="cursor-pointer w-full sm:w-auto px-10 py-5 bg-blue-800/50 backdrop-blur text-white text-lg font-semibold rounded-xl border-2 border-white/20 hover:bg-blue-800/70 transition-all duration-300"
+              href="https://wa.me/923170218290?text=Hello!%20I%20manage%20a%20private%20school%20and%20I'm%20interested%20in%20learning%20how%20SchoolSync%20can%20help%20us%20save%20time%20and%20digitize%20our%20administration.%20Please%20share%20the%20demo%20details%20and%20next%20steps%20so%20we%20can%20get%20started."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Schedule a Call
-            </button>
+            </a>
           </div>
 
           <div className="mt-10 flex items-center justify-center gap-8 text-blue-100">
