@@ -15,9 +15,41 @@ import {
 } from "lucide-react";
 import logo from "../src/assets/SchoolSync-logo.png";
 
+const pricing = {
+  PK: {
+    currency: "PKR",
+    symbol: "Rs",
+    setup: "120,000",
+    monthly: "12,000",
+    studentLimit: "Up to 300 students",
+  },
+  INTL: {
+    currency: "USD",
+    symbol: "$",
+    setup: "499",
+    monthly: "49",
+    studentLimit: "Up to 300 students",
+  },
+};
+
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [visibleSections, setVisibleSections] = useState(new Set());
+  const [region, setRegion] = useState("INTL");
+
+  useEffect(() => {
+    // fetch("https://ipapi.co/json/")
+    fetch("https://ipwho.is/")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.country === "Pakistan") {
+          setRegion("PK");
+        }
+      })
+      .catch(() => {
+        setRegion("INTL");
+      });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,8 +83,10 @@ export default function App() {
       ? "opacity-100 translate-y-0"
       : "opacity-0 translate-y-8";
 
+  const activePrice = pricing[region];
+
   return (
- <div className="bg-white font-sans antialiased overflow-x-hidden">
+    <div className="bg-white font-sans antialiased overflow-x-hidden">
       {/* FLOATING HEADER */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -167,7 +201,10 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               { icon: Clock, text: "Attendance takes too much time every day" },
-              { icon: Users, text: "Student records are scattered or outdated" },
+              {
+                icon: Users,
+                text: "Student records are scattered or outdated",
+              },
               { icon: BarChart3, text: "Report generation is slow and manual" },
               // { icon: Shield, text: "Teachers and admins struggle with coordination" },
               { icon: Cpu, text: "No insights for student performance" },
@@ -217,13 +254,37 @@ export default function App() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Users, title: "Student & Teacher Management", desc: "Centralized profiles and records" },
-              { icon: Calendar, title: "Digital Attendance", desc: "Track presence in real-time" },
-              { icon: BarChart3, title: "Class Management", desc: "Organize sections effortlessly" },
-              { icon: TrendingUp, title: "Performance Reports", desc: "Generate insights instantly" },
-              { icon: Shield, title: "Secure Cloud Access", desc: "Access anywhere, anytime" },
+              {
+                icon: Users,
+                title: "Student & Teacher Management",
+                desc: "Centralized profiles and records",
+              },
+              {
+                icon: Calendar,
+                title: "Digital Attendance",
+                desc: "Track presence in real-time",
+              },
+              {
+                icon: BarChart3,
+                title: "Class Management",
+                desc: "Organize sections effortlessly",
+              },
+              {
+                icon: TrendingUp,
+                title: "Performance Reports",
+                desc: "Generate insights instantly",
+              },
+              {
+                icon: Shield,
+                title: "Secure Cloud Access",
+                desc: "Access anywhere, anytime",
+              },
               // { icon: Clock, title: "Time Tracking", desc: "Monitor schedules efficiently" },
-              { icon: Cpu, title: "AI Study Recommendations", desc: "Personalized learning tips for each student based on grades" },
+              {
+                icon: Cpu,
+                title: "AI Study Recommendations",
+                desc: "Personalized learning tips for each student based on grades",
+              },
             ].map((feature, i) => (
               <div
                 key={i}
@@ -243,7 +304,11 @@ export default function App() {
       </section>
 
       {/* AI FEATURE SECTION */}
-      <section className="py-24 px-6 bg-gradient-to-br from-purple-50 to-white" data-animate id="ai-feature">
+      <section
+        className="py-24 px-6 bg-gradient-to-br from-purple-50 to-white"
+        data-animate
+        id="ai-feature"
+      >
         <div
           className={`max-w-[900px] mx-auto transition-all duration-700 ${fadeInClass(
             "ai-feature"
@@ -257,21 +322,40 @@ export default function App() {
               Intelligent Insights for Smarter Schools
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed max-w-[700px] mx-auto">
-              Our AI engine analyzes student data to provide actionable recommendations, helping teachers personalize learning and improve academic performance effortlessly.
+              Our AI engine analyzes student data to provide actionable
+              recommendations, helping teachers personalize learning and improve
+              academic performance effortlessly.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: Cpu, title: "Personalized Learning", desc: "Tailored study tips based on each student's progress" },
-              { icon: BarChart3, title: "Predictive Analytics", desc: "Forecast student performance and identify gaps early" },
-              { icon: TrendingUp, title: "Automated Insights", desc: "AI-generated reports to save teachers hours of work" },
+              {
+                icon: Cpu,
+                title: "Personalized Learning",
+                desc: "Tailored study tips based on each student's progress",
+              },
+              {
+                icon: BarChart3,
+                title: "Predictive Analytics",
+                desc: "Forecast student performance and identify gaps early",
+              },
+              {
+                icon: TrendingUp,
+                title: "Automated Insights",
+                desc: "AI-generated reports to save teachers hours of work",
+              },
             ].map((feature, i) => (
-              <div key={i} className="group p-8 bg-white border border-gray-200 rounded-2xl hover:border-purple-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div
+                key={i}
+                className="group p-8 bg-white border border-gray-200 rounded-2xl hover:border-purple-300 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              >
                 <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-600 transition-colors">
                   <feature.icon className="w-6 h-6 text-purple-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-600">{feature.desc}</p>
               </div>
             ))}
@@ -422,36 +506,43 @@ export default function App() {
               Pricing
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Simple & Transparent Pricing
+              Simple & Localized Pricing
             </h2>
           </div>
 
           <div className="relative">
-            {/* Popular badge */}
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-sm font-bold rounded-full shadow-lg">
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 bg-emerald-600 text-white text-sm font-bold rounded-full">
               Most Popular
             </div>
 
-            <div className="p-10 bg-white border-2 border-blue-600 rounded-3xl shadow-2xl shadow-blue-100 hover:shadow-3xl hover:-translate-y-1 transition-all duration-300">
+            <div className="p-10 bg-white border-2 border-blue-600 rounded-3xl shadow-xl">
               <h3 className="text-2xl font-bold text-blue-600 mb-8">
                 Starter Plan
               </h3>
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold text-gray-900">$499</span>
+                  <span className="text-5xl font-bold text-gray-900">
+                    {activePrice.symbol}
+                    {activePrice.setup}
+                  </span>
                   <span className="text-lg text-gray-600">one-time setup</span>
                 </div>
+
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-gray-900">$49</span>
+                  <span className="text-4xl font-bold text-gray-900">
+                    {activePrice.symbol}
+                    {activePrice.monthly}
+                  </span>
                   <span className="text-lg text-gray-600">/month</span>
                 </div>
+
                 <p className="text-base text-gray-600 mt-3">
-                  Up to 300 students
+                  {activePrice.studentLimit}
                 </p>
               </div>
 
-              <div className="space-y-4 mb-8 pb-8 border-b border-gray-200">
+              <div className="space-y-4 mb-8">
                 {[
                   "Cloud hosting included",
                   "24/7 ongoing support",
@@ -460,22 +551,22 @@ export default function App() {
                   "Training materials",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-emerald-500" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <p className="text-sm text-gray-600 mb-6 text-center">
-                🔒 No long-term contracts • Cancel anytime
+              <p className="text-sm text-gray-500 text-center mb-6">
+                Pricing is automatically localized based on your region.
               </p>
 
               <button
                 onClick={() => (window.location.href = "#demo")}
-                className="cursor-pointer  w-full py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 group"
+                className="cursor-pointer w-full py-4 bg-blue-600 text-white text-lg font-semibold rounded-xl hover:bg-blue-700 flex items-center justify-center gap-2"
               >
-                Get Started Now
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Get Started
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
           </div>
